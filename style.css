@@ -1,0 +1,451 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Coluna Esquerda: Linha do Tempo */
+.timeline {
+  width: 40%;
+  background: #222;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline h2 {
+  color: white; /* Define a cor desejada */
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.timeline ul {
+  list-style: none;
+  width: 100%;
+}
+
+.timeline li {
+  background-color: #222; /* Fundo escuro para todos os itens */
+  color: white;
+  margin-bottom: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o ano */
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.timeline li:hover {
+  background-color: #222; /* Efeito de hover consistente */
+}
+
+.timeline li h3 {
+  position: relative; /* Para posicionar a bolinha em relação ao h3 */
+  padding-left: 30px; /* Espaço para a bolinha */
+}
+
+.timeline li h3::before {
+  content: ""; /* Para criar o pseudo-elemento */
+  position: absolute;
+  left: 0; /* Para alinhar à esquerda do h3 */
+  top: 50%; /* Centraliza verticalmente */
+  transform: translateY(-50%); /* Ajuste fino para centralizar verticalmente */
+  width: 10px; /* Tamanho da bolinha */
+  height: 10px; /* Tamanho da bolinha */
+  background-color: #f7931a; /* Cor da bolinha */
+  border-radius: 50%; /* Faz a bolinha ser redonda */
+}
+
+.timeline .date {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.timeline h3 {
+  text-align: left; /* Alinha o título à esquerda */
+  width: 100%; /* Faz com que ocupe toda a largura */
+  padding-left: 10px; /* Pequeno espaço para não grudar na borda */
+}
+
+.timeline-separator {
+  border: 0;
+  height: 1px;
+  background-color: #f7931a; /* Cor da linha separadora */
+  margin: 10px 0; /* Espaçamento superior e inferior */
+}
+
+/* Janela modal sobrepondo o lado direito */
+.content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.97);
+  color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.content h2 {
+  margin-bottom: 20px;
+}
+
+.sub-sections {
+  width: 100%;
+}
+
+.section {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.section h3 {
+  color: #f7931a;
+  margin-bottom: 5px;
+}
+
+/* Botão de fechar */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: white;
+}
+
+.timeline h3:hover + .content {
+  display: block;
+}
+
+/* Coluna Direita: Conteúdo */
+.content-right {
+  position: relative;
+  width: 60%;
+  padding: 20px;
+}
+
+.content-right section {
+  margin-bottom: 40px;
+}
+
+.content-right h2 {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f7931a;
+  display: inline-block;
+}
+
+.content-right p {
+  margin-bottom: 10px;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(300px, 1fr)
+  ); /* Layout responsivo */
+  gap: 20px;
+}
+
+.project iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+.projects img {
+  max-width: 100%; /* A imagem não ultrapassa a largura do contêiner */
+  height: auto; /* A altura é ajustada automaticamente para manter a proporção */
+  display: block; /* Remove espaços extras abaixo da imagem */
+  border-radius: 10px; /* Opcional: mantém o arredondamento das bordas */
+}
+
+#trabalhos p {
+  margin-bottom: 20px; /* Espaçamento abaixo do parágrafo */
+  font-size: 16px; /* Tamanho da fonte */
+  line-height: 1.6; /* Espaçamento entre linhas */
+  color: #333; /* Cor do texto */
+}
+
+#trabalhos a {
+  color: #f7931a; /* Cor dos links */
+  text-decoration: none; /* Remove o sublinhado padrão */
+}
+
+#trabalhos a:hover {
+  text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+/* Ajuste para o vídeo e descrição lado a lado */
+.sobre-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sobre-container video {
+  width: 65%;
+  border-radius: 10px;
+}
+
+.sobre-container p {
+  width: 35%;
+}
+
+.navbar {
+  position: absolute; /* Posiciona os botões no canto superior esquerdo */
+  top: 20px; /* Distância do topo */
+  right: 20px; /* Distância da esquerda */
+  display: flex;
+  gap: 10px;
+  z-index: 500; /* Garante que os botões fiquem acima de outros elementos */
+}
+
+.navbar button {
+  background-color: #f7931a;
+  border: none;
+  padding: 10px 15px;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button:hover {
+  background-color: #d97916;
+}
+
+.skills-container {
+  text-align: center;
+  padding: 20px;
+}
+
+.skills-container iframe {
+  width: 80%;
+  height: 500px;
+}
+
+.hobbies-container {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto; /* Ajusta a altura das linhas */
+  gap: 5px; /* Espaçamento entre os itens */
+  align-items: center;
+}
+
+.media-grid video,
+.media-grid img,
+.media-grid embed {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.media-grid video:hover,
+.media-grid img:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+/* Estilos para o modal */
+.modal-overlay {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro semi-transparente */
+  z-index: 1000; /* Garante que o modal fique acima de tudo */
+  display: flex; /* Usando flexbox para centralizar */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.modal {
+  display: flex; /* Flexbox para centralizar o conteúdo */
+  flex-direction: column; /* Garante que o conteúdo dentro do modal esteja na direção correta */
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: fixed; /* Garantir que o modal fique fixo na tela */
+  top: 50%; /* Move o modal para o meio da tela */
+  left: 50%; /* Move o modal para o meio da tela */
+  transform: translate(-50%, -50%); /* Ajuste preciso para o centro exato */
+  z-index: 1001; /* Garante que o modal fique sobre outros elementos */
+}
+
+.modal-content p {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
+.modal-content button {
+  background-color: #f7931a;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #d97916;
+}
+
+/* Estilos para o modal */
+/* Estilos para o modal de mídia */
+.media-modal {
+  display: none; /* Escondido por padrão */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Fundo escuro semi-transparente */
+  z-index: 1000; /* Garante que o modal fique acima de tudo */
+  justify-content: center;
+  align-items: center;
+}
+
+.media-modal-content {
+  position: relative;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 90%;
+  max-height: 90%;
+  overflow: auto;
+  text-align: center;
+}
+
+.media-modal-content img,
+.media-modal-content video,
+.media-modal-content embed {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.video-wrapper {
+  margin-top: 32px;
+}
+
+.media-modal-content .close-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Fundo branco semi-transparente */
+  border: none;
+  color: #333; /* Cor escura para o "X" */
+  border-radius: 50%; /* Botão redondo */
+  width: 40px; /* Largura fixa */
+  height: 40px; /* Altura fixa */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease; /* Efeito de transição suave */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .timeline,
+  .content-right {
+    width: 100%;
+  }
+
+  .sobre-container {
+    flex-direction: column;
+  }
+
+  .sobre-container video,
+  .sobre-container p {
+    width: 100%;
+  }
+
+  .media-grid video,
+  .media-grid img {
+    width: calc(50% - 15px); /* Ajuste para telas menores */
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-grid video,
+  .media-grid img {
+    width: 100%; /* Uma coluna em telas muito pequenas */
+  }
+
+  .navbar button {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
