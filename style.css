@@ -206,6 +206,7 @@ body {
   font-size: 16px; /* Tamanho da fonte */
   line-height: 1.6; /* Espaçamento entre linhas */
   color: #333; /* Cor do texto */
+  text-align:justify
 }
 
 #trabalhos a {
@@ -219,8 +220,15 @@ body {
 /* Ajuste para o vídeo e descrição lado a lado */
 .sobre-container {
   display: flex;
+  flex-direction: column; /* Coloca o vídeo e o texto em coluna */
   align-items: center;
   gap: 20px;
+}
+
+.sobre-container iframe {
+  width: 100%; /* O vídeo ocupa toda a largura */
+  height: 400px; /* Altura fixa para o vídeo */
+  border-radius: 10px;
 }
 
 .sobre-container video {
@@ -229,7 +237,8 @@ body {
 }
 
 .sobre-container p {
-  width: 35%;
+  width: 100%;
+  text-align:justify
 }
 
 .navbar {
@@ -256,6 +265,31 @@ body {
   background-color: #d97916;
 }
 
+.navbar2 {
+  position: absolute; /* Posiciona os botões no canto superior esquerdo */
+  top: center; /* Distância do topo */
+  right: 20px; /* Distância da esquerda */
+  display: flex;
+  gap: 10px;
+  z-index: 500; /* Garante que os botões fiquem acima de outros elementos */
+  justify-content: flex-end; /* Alinha os botões à direita */
+}
+
+.navbar2 button {
+  background-color: #f7931a;
+  border: none;
+  padding: 10px 15px;
+  color: #333;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar2 button:hover {
+  background-color: #d97916;
+}
+
 .skills-container {
   text-align: center;
   padding: 20px;
@@ -264,6 +298,13 @@ body {
 .skills-container iframe {
   width: 80%;
   height: 500px;
+}
+
+.full-screen-image {
+  width: 100%; /* A imagem ocupa toda a largura do contêiner */
+  height: auto; /* A altura é ajustada automaticamente */
+  max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner */
+  border-radius: 10px; /* Bordas arredondadas */
 }
 
 .hobbies-container {
@@ -409,6 +450,7 @@ body {
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s ease; /* Efeito de transição suave */
+  z-index: 9999; /* Número alto para garantir que fique na frente */
 }
 
 /* Responsividade */
@@ -448,4 +490,85 @@ body {
     width: 100%;
     margin-bottom: 10px;
   }
+}
+
+@media (max-width: 768px) {
+  .sobre-container iframe {
+    height: 300px; /* Reduz a altura do vídeo em telas menores */
+  }
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 768px) {
+  .full-screen-image {
+    height: auto; /* Ajusta a altura automaticamente */
+  }
+}
+
+/* Estilos para o carrossel */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Largura máxima do carrossel */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: none; /* Esconde todas as imagens por padrão */
+}
+
+.carousel img.active {
+  display: block; /* Exibe apenas a imagem ativa */
+}
+
+/* Controles do carrossel */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 100;
+}
+
+.carousel-control.prev {
+  left: 10px;
+}
+
+.carousel-control.next {
+  right: 10px;
+}
+
+.carousel-control:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*redes sociais icones*/
+.social-icons {
+  display: flex;
+  gap: 15px; /* Espaço entre os ícones */
+  margin-top: 10px;
+}
+
+.social-icons a img {
+  width: 40px; /* Ajuste o tamanho do ícone */
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
 }

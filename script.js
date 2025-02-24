@@ -113,3 +113,88 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+let currentSlide = 0;
+let slides = [];
+
+// Função para abrir o modal com o carrossel
+function openMediaModal(src, type, element) {
+  const modal = document.getElementById("mediaModal");
+  const carouselInner = document.querySelector(".carousel-inner");
+
+  // Limpa o carrossel antes de adicionar novas imagens
+  carouselInner.innerHTML = "";
+
+  // Coleta todas as imagens da grade de mídia
+  const mediaElements = document.querySelectorAll(".media-grid img");
+  slides = Array.from(mediaElements).map((img) => img.src);
+
+  // Adiciona as imagens ao carrossel
+  slides.forEach((slideSrc, index) => {
+    const img = document.createElement("img");
+    img.src = slideSrc;
+    img.alt = `Slide ${index + 1}`;
+    img.style.width = "100%"; // Garante que a imagem ocupe todo o espaço do carrossel
+    img.style.display = "none"; // Esconde todas as imagens inicialmente
+    carouselInner.appendChild(img);
+  });
+
+  // Define o slide inicial
+  currentSlide = slides.indexOf(src);
+  updateCarousel();
+
+  // Exibe o modal
+  modal.style.display = "flex";
+}
+
+// Função para fechar o modal
+function closeMediaModal() {
+  const modal = document.getElementById("mediaModal");
+  modal.style.display = "none";
+}
+
+// Função para navegar para o slide anterior
+function prevSlide() {
+  if (currentSlide > 0) {
+    currentSlide--;
+  } else {
+    currentSlide = slides.length - 1; // Volta para o último slide
+  }
+  updateCarousel();
+}
+
+// Função para navegar para o próximo slide
+function nextSlide() {
+  if (currentSlide < slides.length - 1) {
+    currentSlide++;
+  } else {
+    currentSlide = 0; // Volta para o primeiro slide
+  }
+  updateCarousel();
+}
+
+// Função para atualizar a exibição do carrossel
+function updateCarousel() {
+  const carouselInner = document.querySelector(".carousel-inner");
+  const images = carouselInner.querySelectorAll("img");
+
+  // Esconde todas as imagens
+  images.forEach((img, index) => {
+    img.style.display = "none";
+  });
+
+  // Exibe apenas a imagem atual
+  images[currentSlide].style.display = "block";
+}
+
+// Adiciona eventos de clique para abrir o modal
+document.addEventListener("DOMContentLoaded", function () {
+  const mediaElements = document.querySelectorAll(".media-grid img");
+
+  mediaElements.forEach((element) => {
+    element.addEventListener("click", function () {
+      const src = element.src;
+      openMediaModal(src, "image", element);
+    });
+  });
+});

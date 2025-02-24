@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hobbies</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 
-   
+
   <div class="hobbies-container">
     <div class="navbar">
-        <button onclick="window.location.href='index.html'">Currículo</button>
+      <button onclick="window.location.href='index.html'">Currículo</button>
       <button onclick="window.location.href='skills.html'">Skills</button>
-      </div>
+    </div>
     <div class="media-grid">
       <img src="img/a1.jpg" alt="Certificado 0">
       <img src="img/a2.jpeg" alt="Certificado1">
@@ -23,7 +25,7 @@
       <img src="img/a5.jpg" alt="Certificado 4">
       <img src="img/a6.jpg" alt="Certificado 5">
       <img src="img/a7.jpg" alt="Certificado 6">
-      
+
       <img src="img/f2.jpeg" alt="Formatura 1">
       <img src="img/a9.jpg" alt="Certificado 7">
       <img src="img/a10.jpg" alt="Certificado 8">
@@ -37,10 +39,10 @@
       <img src="img/f1.jpeg" alt="Formatura 2">
       <img src="img/a19.jpeg" alt="Certificado 17">
       <img src="img/a20.jpg" alt="Certificado 18">
-      
+
       <img src="img/a22.jpg" alt="Certificado 20">
       <img src="img/a23.jpg" alt="Certificado 21">
-      
+
       <img src="img/a21.jpg" alt="Certificado 19">
       <div class="pdf-container">
         <embed src="img/a24.pdf" type="application/pdf" width="100%" height="80%" />
@@ -50,7 +52,7 @@
       <img src="img/a25.jpg" alt="Certificado 22">
       <img src="img/a28.jpeg" alt="Certificado 25">
       <img src="img/a27.jpg" alt="Certificado 24">
-      
+
       <img src="img/a29.jpg" alt="Certificado 26">
       <img src="img/a30.jpg" alt="Certificado 27">
       <img src="img/a31.png" alt="Certificado 28">
@@ -58,21 +60,27 @@
       <img src="img/a33.jpg" alt="Certificado 30">
       <img src="img/a34.jpg" alt="Certificado 31">
       <img src="img/a35.png" alt="Certificado 32">
-      <img src="img/a36.jpeg" alt="Certificado 33">      
+      <img src="img/a36.jpeg" alt="Certificado 33">
     </div>
-  
-  <script src="script.js"></script>
-  <!-- Modal para exibir imagens, vídeos e PDFs em tamanho original -->
-<div class="media-modal" id="mediaModal">
-    <div class="media-modal-content">
-      <span class="close-btn" onclick="closeMediaModal()">✖</span>
-      <img id="modalImage" src="" alt="Imagem em tamanho original">
-      <video id="modalVideo" controls class="video-wrapper">
-        <source src="" type="video/mp4">
-        Seu navegador não suporta a reprodução de vídeos.
-      </video>
-      <iframe id="modalPdf" src="" width="100%" height="100%" style="border: none;"></iframe>
+
+    <script src="script.js"></script>
+    <!-- Modal para exibir imagens, vídeos e PDFs em tamanho original -->
+    <div class="media-modal" id="mediaModal">
+      <div class="media-modal-content">
+        <span class="close-btn" onclick="closeMediaModal()">✖</span>
+
+        <!-- Carrossel de imagens -->
+        <div class="carousel">
+          <div class="carousel-inner">
+            <!-- As imagens serão inseridas dinamicamente aqui -->
+          </div>
+
+          <!-- Controles do carrossel -->
+          <button class="carousel-control prev" onclick="prevSlide()">&#10094;</button>
+          <button class="carousel-control next" onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
     </div>
-  </div>
 </body>
+
 </html>
